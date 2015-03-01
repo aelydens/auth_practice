@@ -5,9 +5,10 @@ feature 'Authentication' do
     visit root_path
     click_on 'Sign Up'
     fill_in 'Email', with: 'bob@jones.edu'
-    fill_name 'Password', with: 'password'
-    click_on 'Sign Up'
+    fill_in 'Password', with: 'password'
+    click_on 'Create User'
     expect(page).to have_content('bob@jones.edu')
+    expect(page).to have_content('Sign Out')
     expect(page).not_to have_content('Sign Up')
     expect(page).not_to have_content('Sign In')
   end
@@ -18,8 +19,9 @@ feature 'Authentication' do
     click_on 'Sign In'
     fill_in 'Email', with: 'mj@jackson5.com'
     fill_in 'Password', with: 'password'
-    click_on 'Sign In'
+    click_on 'Log in'
     expect(page).to have_content('Welcome, mj@jackson5.com')
+    expect(page).to have_content('Sign Out')
     expect(page).not_to have_content('Sign Up')
     expect(page).not_to have_content('Sign In')
   end

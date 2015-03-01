@@ -1,1 +1,9 @@
 Welcome to User Auth Practice
+
+<hr>
+
+<% if current_user %>
+  Welcome, <%= current_user.email %>
+<% else %>
+  No one is here
+<% end %>
